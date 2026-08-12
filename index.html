@@ -6,140 +6,236 @@
   <title>APPLY AND FLY — Grant Mentorlik Kursi</title>
   <style>
     :root {
-      --primary: #1976d2;
-      --accent: #2e7d32;
-      --bg: #f5f5f5;
-      --text: #222;
+      --bg: #f7f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #2563eb;
+      --primary-weak: #dbeafe;
+      --accent: #16a34a;
+      --border: #e5e7eb;
     }
+
+    * { box-sizing: border-box; }
     body {
-      font-family: system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background: var(--bg);
       margin: 0;
-      padding: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background: linear-gradient(180deg, #f3f4f6 0%, #ffffff 100%);
+      color: var(--text);
+      line-height: 1.6;
     }
-    .container {
-      max-width: 800px;
+
+    .wrap {
+      max-width: 880px;
       margin: 40px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 0 20px;
     }
-    h1, h2, h3 {
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+      margin: 0 0 6px 0;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 1.25rem;
+      color: var(--muted);
+      margin: 0 0 20px 0;
+      font-weight: 500;
+    }
+    h3 {
+      font-size: 1.1rem;
+      margin: 22px 0 10px 0;
       color: var(--primary);
     }
-    .price {
-      font-size: 1.4em;
-      color: var(--accent);
-      font-weight: bold;
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
+    @media (min-width: 720px) {
+      .hero {
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+      }
+    }
+
+    .pill {
+      display: inline-block;
+      background: var(--primary-weak);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .price-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .price {
+      font-size: 1.35rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .price-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 8px 0 0 0;
+      padding-left: 20px;
+    }
+    li {
+      margin: 6px 0;
+    }
+
     .cta {
       display: inline-block;
       background: var(--primary);
       color: #fff;
-      padding: 10px 20px;
+      padding: 10px 18px;
+      border-radius: 10px;
       text-decoration: none;
-      border-radius: 4px;
+      font-weight: 600;
       margin-top: 10px;
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
     }
     .cta:hover {
-      background: #1565c0;
+      background: #1d4ed8;
     }
-    ul {
-      padding-left: 20px;
+
+    .results {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 10px;
     }
+    .results-title {
+      font-weight: 700;
+      color: #9a3412;
+      margin-bottom: 6px;
+    }
+
     .note {
-      font-style: italic;
-      color: #555;
-      background: #fffde7;
-      padding: 10px;
-      border-left: 4px solid #fbc02d;
-      margin: 15px 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-top: 14px;
     }
+
     footer {
       text-align: center;
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #666;
+      margin: 40px 0 20px 0;
+      font-size: 0.9rem;
+      color: var(--muted);
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎓 APPLY AND FLY</h1>
-    <h2>Grantlar uchun 0dan universal mentorlik kursi</h2>
+  <div class="wrap">
+    <div class="card">
+      <div class="hero">
+        <div>
+          <span class="pill">Grant mentorlik kursi</span>
+          <h1>APPLY AND FLY</h1>
+          <h2>Grantlar uchun 0dan universal mentorlik kursi</h2>
 
-    <p><strong>Kim uchun:</strong> Bakalavr va magistraturani 100% grant bilan chet elda oʻqimoqchi boʻlganlar uchun.</p>
+          <p>
+            <strong>Kim uchun:</strong> Bakalavr va magistraturani 100% grant bilan chet elda oʻqimoqchi boʻlganlar uchun.
+          </p>
 
-    <h3>🎯 Nima olasiz?</h3>
-    <ul>
-      <li>Grantlar nimani xohlashi va ularni qanday topish haqida chuqur tushuncha</li>
-      <li>Oʻzingizga mos kuchli CV, Motivation Letter va Recommendation Letter yozishni oʻrganish</li>
-      <li>Grant yutgan hujjatlar toʻplami</li>
-      <li>Har bir davlat uchun maxsus strategiyalar: 🇺🇸 🇹🇷 🇩🇪 🇰🇷 🇫🇷 🇪🇺</li>
-      <li>Muallif bilan jonli Q&A session</li>
-      <li>Qatnashchilar uchun community chat</li>
-      <li>Qoʻshimcha shablonlar va roadmaps</li>
-      <li><strong>Bonus:</strong> Oʻzingiz tanlagan dastur boʻyicha hujjatlaringiz tekshirib beriladi</li>
-    </ul>
+          <p>
+            <strong>Kurs maqsadi:</strong> Grantlar haqida chuqur maʼlumotingizni oshirish, toki oʻzingiz istagan grantga birovning yordamisiz, grant beruvchi nima xohlashini tushunvolib, bemalol topshira oling.
+          </p>
 
-    <div class="note">
-      ⚠️ Eslatma: Kursda individual feedback yoki shaxsiy maslahatlar kiritilmagan.
+          <h3>🎯 Nima olasiz?</h3>
+          <ul>
+            <li>Grantlar nimani xohlashi va ularni qanday topish haqida chuqur tushuncha</li>
+            <li>Oʻzingizga mos kuchli CV, Motivation Letter va Recommendation Letter yozishni oʻrganish</li>
+            <li>Grant yutgan hujjatlar toʻplami</li>
+            <li>Har bir davlat uchun maxsus strategiyalar: 🇺🇸 🇹🇷 🇩🇪 🇰🇷 🇫🇷 🇪🇺</li>
+            <li>Qatnashchilar uchun community chat</li>
+            <li>Qoʻshimcha shablonlar va roadmaps</li>
+          </ul>
+
+          <div class="note">
+            ⚠️ Eslatma: Kursda individual feedback, jonli Q&A yoki hujjatlarni tekshirish xizmati kiritilmagan.
+          </div>
+
+          <h3>📅 Kurs sanasi</h3>
+          <p><strong>1-sentyabr, 2026</strong></p>
+
+          <h3>👩‍🏫 Muallif</h3>
+          <p>
+            <strong>Olimakhon Ergasheva</strong><br>
+            DAAD🇩🇪, Turkiye Burslari🇹🇷, Erasmus Mundus🇪🇺, GKS🇰🇷, Global UGRAD/Techgirls🇺🇸, OSCE🇬🇪 dasturlari gʻolibi.
+          </p>
+
+          <h3>🏆 Natijalar</h3>
+          <div class="results">
+            <div class="results-title">Bitiruvchilar natijalari</div>
+            <ul>
+              <li>2 × DAAD finalist</li>
+              <li>1 × GKS grant</li>
+              <li>2 × OSCE grant</li>
+            </ul>
+          </div>
+
+          <h3>💰 Narxi</h3>
+          <div class="price-box">
+            <div class="price">300,000 UZS</div>
+            <div class="price-sub">(Faqat bugun roʻyxatdan oʻtsangiz)</div>
+          </div>
+
+          <h3>📺 Darsliklar va dostup</h3>
+          <p>
+            Barcha video darsliklar YouTube’ga joylanadi hamda Telegram yopiq kanali orqali umrbod dostup beriladi.
+          </p>
+
+          <h3>📩 Roʻyxatdan oʻtish va savollar uchun</h3>
+          <a href="https://t.me/oddiyqiz_admin" class="cta">@oddiyqiz_admin</a>
+        </div>
+
+        <div>
+          <div class="price-box" style="margin-top: 0;">
+            <div class="price">300,000 UZS</div>
+            <div class="price-sub">1-sentyabr, 2026</div>
+            <div style="margin-top: 10px; font-size: 0.95rem;">
+              YouTube + Telegram yopiq kanal<br />
+              Umrbod dostup
+            </div>
+          </div>
+
+          <div class="results" style="margin-top: 16px;">
+            <div class="results-title">Natijalar</div>
+            <ul style="margin-top: 6px;">
+              <li>2 × DAAD finalist</li>
+              <li>1 × GKS grant</li>
+              <li>2 × OSCE grant</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        © 2026 APPLY AND FLY — Grant Mentorlik Kursi
+      </footer>
     </div>
-
-    <h3>📅 Kurs sanasi</h3>
-    <p><strong>1-sentyabr, 2025</strong></p>
-
-    <h3>👩‍🏫 Muallif</h3>
-    <p><strong>Olimakhon Ergasheva</strong><br>
-    DAAD🇩🇪, Turkiye Burslari🇹🇷, Erasmus Mundus🇪🇺, GKS🇰🇷, Global UGRAD/Techgirls🇺🇸, OSCE🇬🇪 dasturlari gʻolibi.</p>
-
-    <h3>💰 Narxi</h3>
-    <p class="price">300,000 UZS</p>
-    <p><em>(Faqat bugun roʻyxatdan oʻtsangiz)</em></p>
-
-    <h3>📚 Kurs dasturi (video darsliklar)</h3>
-    <ul>
-      <li>Kursga kirish</li>
-      <li>Grantlar dunyosiga kirish</li>
-      <li>Grantlarning asosiy turlari</li>
-      <li>Grantlarni qayerdan topish mumkin?</li>
-      <li>Sizga toʻgʻri keladigan grantni tanlash</li>
-      <li>Grantlarni rejalashtirish jadvali</li>
-      <li>Motivatsion xat nima? va strukturasi</li>
-      <li>Grant yutgan essayimni koʻrib chiqamiz</li>
-      <li>Essay boʻyicha shaxsiy maslahatlarim</li>
-      <li>Essay savol turlari</li>
-      <li>CV yaratish va tuzilishi</li>
-      <li>Grant yutgan CV tahlili</li>
-      <li>CV boʻyicha shaxsiy maslahat</li>
-      <li>Intervyuga tayyorgarlik</li>
-      <li>Letter of Recommendation</li>
-      <li>Davlatlar boʻyicha grant strategiyalari (🇺🇸 🇹🇷 🇩🇪 🇰🇷 🇫🇷 🇪🇺)</li>
-      <li>Ruhiy tayyorgarlik, Time Management, Grant Roadmap</li>
-    </ul>
-
-    <h3>📑 Kurs materiallari (hujjatlar)</h3>
-    <ul>
-      <li>Course book</li>
-      <li>Motivation Letter – DAAD</li>
-      <li>UGRAD yutgan essayim</li>
-      <li>Techgirls essaylari</li>
-      <li>DAAD CV</li>
-      <li>Fulbright Potential Interview Questions</li>
-      <li>Recommendation Letter UGRAD</li>
-      <li>Recommendation Letter Erasmus</li>
-    </ul>
-    <p><em>Barcha video darsliklar YouTube orqali taqdim etiladi.</em></p>
-
-    <h3>📩 Roʻyxatdan oʻtish va savollar uchun</h3>
-    <a href="https://t.me/oddiyqiz_admin" class="cta">@oddiyqiz_admin</a>
-
-    <footer>
-      © 2025 APPLY AND FLY — Grant Mentorlik Kursi
-    </footer>
   </div>
 </body>
 </html>
