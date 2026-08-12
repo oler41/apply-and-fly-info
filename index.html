@@ -442,6 +442,7 @@
         <div>
           <span class="pill">Grant mentorlik kursi</span>
           <h1>APPLY AND FLY</h1>
+          <h2>Aynan hozir 60% skidkada!</h2>
           <h2>Grantlar uchun 0dan universal mentorlik kursi</h2>
 
           <p>
@@ -534,7 +535,7 @@
 
           <h3>📺 Darsliklar va dostup</h3>
           <p>
-            Barcha video darsliklar YouTube’ga joylanadi hamda Telegram yopiq kanali orqali umrbod dostup beriladi.
+            Barcha video darsliklar YouTube’ga joylanadi hamda Telegram yopiq kanali orqali <strong>umrbod dostup</strong> beriladi.
           </p>
 
           <div class="photo-grid">
@@ -548,7 +549,7 @@
             </div>
           </div>
 
-          <h3>� Kurs materiallari</h3>
+          <h3> Kurs materiallari</h3>
           <div class="results">
             <div class="results-title">Kurs davomida taqdim etilgan materiallar</div>
             <ul>
@@ -560,12 +561,12 @@
             </ul>
           </div>
 
-          <h3>�📩 Roʻyxatdan oʻtish va savollar uchun</h3>
+          <h3> Roʻyxatdan oʻtish va savollar uchun</h3>
           <a href="https://t.me/oddiyqiz_admin" class="cta">@oddiyqiz_admin</a>
 
           <div class="feedback-section" id="feedbackSection">
             <button class="feedback-toggle" type="button" aria-expanded="false" aria-controls="feedbackContent">
-              <span class="label">💬 Feedback</span>
+              <span class="label">💬 Kurs bo'yicha feedback</span>
               <span class="chevron">⌄</span>
             </button>
             <div class="feedback-content" id="feedbackContent">
@@ -600,13 +601,24 @@
   </div>
 
   <script>
-    const feedbackSection = document.getElementById('feedbackSection');
-    const feedbackToggle = feedbackSection.querySelector('.feedback-toggle');
+  document.addEventListener("DOMContentLoaded", function () {
+    const feedbackSection = document.getElementById("feedbackSection");
+    const feedbackToggle = document.querySelector(".feedback-toggle");
 
-    feedbackToggle.addEventListener('click', () => {
-      const isOpen = feedbackSection.classList.toggle('open');
-      feedbackToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (!feedbackSection || !feedbackToggle) {
+      console.error("Feedback elements were not found.");
+      return;
+    }
+
+    feedbackToggle.addEventListener("click", function () {
+      const isOpen = feedbackSection.classList.toggle("open");
+
+      feedbackToggle.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+      );
     });
-  </script>
+  });
+</script>
 </body>
 </html>
