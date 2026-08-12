@@ -6,66 +6,88 @@
   <title>APPLY AND FLY — Grant Mentorlik Kursi</title>
   <style>
     :root {
-      --bg: #f7f7fb;
+      --bg: #f3f6ff;
       --card: #ffffff;
       --text: #1f2937;
-      --muted: #6b7280;
+      --muted: #5b6477;
       --primary: #2563eb;
       --primary-weak: #dbeafe;
       --accent: #16a34a;
+      --accent-soft: #ecfdf5;
+      --warning: #fff7ed;
+      --warning-border: #fed7aa;
       --border: #e5e7eb;
+      --shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
     }
 
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      background: linear-gradient(180deg, #f3f4f6 0%, #ffffff 100%);
+      background:
+        linear-gradient(180deg, rgba(244, 247, 255, 0.86), rgba(255, 255, 255, 0.9)),
+        url('assets/bg/travel-1.jpg') center/cover no-repeat fixed;
       color: var(--text);
       line-height: 1.6;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(15, 118, 110, 0.06)),
+        url('assets/bg/travel-2.jpg') right top/45% no-repeat,
+        url('assets/bg/travel-3.jpg') left bottom/40% no-repeat;
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .wrap {
-      max-width: 880px;
+      max-width: 980px;
       margin: 40px auto;
       padding: 0 20px;
+      position: relative;
+      z-index: 1;
     }
 
     .card {
       background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px 24px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 22px;
+      padding: 28px 24px 20px;
+      box-shadow: var(--shadow);
     }
 
     h1 {
-      font-size: 2rem;
-      line-height: 1.2;
-      margin: 0 0 6px 0;
-      letter-spacing: -0.02em;
+      font-size: clamp(2.1rem, 5vw, 3rem);
+      line-height: 1.08;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.04em;
     }
     h2 {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--muted);
       margin: 0 0 20px 0;
-      font-weight: 500;
+      font-weight: 600;
     }
     h3 {
-      font-size: 1.1rem;
-      margin: 22px 0 10px 0;
+      font-size: 1.15rem;
+      margin: 26px 0 10px 0;
       color: var(--primary);
     }
 
     .hero {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 22px;
     }
-    @media (min-width: 720px) {
+    @media (min-width: 820px) {
       .hero {
-        grid-template-columns: 1.2fr 0.8fr;
-        align-items: center;
+        grid-template-columns: 1.35fr 0.65fr;
+        align-items: start;
       }
     }
 
@@ -73,27 +95,121 @@
       display: inline-block;
       background: var(--primary-weak);
       color: var(--primary);
-      padding: 4px 10px;
+      padding: 6px 12px;
       border-radius: 999px;
-      font-size: 0.8rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .info-card,
+    .payment-card,
+    .price-box,
+    .results {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .info-card {
+      padding: 18px 18px 12px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    }
+
+    .info-card .date {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .info-card .duration {
+      margin: 8px 0 0;
+      font-size: 1rem;
+      color: var(--muted);
       font-weight: 600;
-      margin-bottom: 8px;
     }
 
     .price-box {
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      border-radius: 12px;
-      padding: 14px 16px;
+      background: linear-gradient(135deg, var(--accent-soft) 0%, #f0fdf4 100%);
+      border-color: rgba(34, 197, 94, 0.25);
+      padding: 18px 18px 16px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
     }
     .price {
-      font-size: 1.35rem;
-      color: var(--accent);
-      font-weight: 700;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: #15803d;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .price-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+    .old-price {
+      color: #94a3b8;
+      text-decoration: line-through;
+      font-weight: 600;
+      font-size: 1.05rem;
     }
     .price-sub {
       font-size: 0.9rem;
       color: var(--muted);
+      margin-top: 6px;
+    }
+    .deadline {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .payment-card {
+      background: linear-gradient(180deg, #fff 0%, #f9fafb 100%);
+      padding: 18px;
+      border-color: rgba(37, 99, 235, 0.15);
+    }
+
+    .payment-card .label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .payment-card .amount {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 8px 0 10px;
+    }
+
+    .payment-card .bank-box {
+      margin-top: 14px;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+
+    .account-name {
+      font-weight: 700;
+      margin: 8px 0;
+    }
+
+    .card-number {
+      font-size: 1.06rem;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
     }
 
     ul {
@@ -101,34 +217,35 @@
       padding-left: 20px;
     }
     li {
-      margin: 6px 0;
+      margin: 7px 0;
     }
 
     .cta {
       display: inline-block;
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
       color: #fff;
-      padding: 10px 18px;
-      border-radius: 10px;
+      padding: 12px 18px;
+      border-radius: 12px;
       text-decoration: none;
-      font-weight: 600;
-      margin-top: 10px;
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+      font-weight: 700;
+      margin-top: 14px;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .cta:hover {
-      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.32);
     }
 
     .results {
-      background: #fff7ed;
-      border: 1px solid #fed7aa;
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin-top: 10px;
+      background: var(--warning);
+      border-color: var(--warning-border);
+      padding: 16px 18px;
+      margin-top: 12px;
     }
     .results-title {
-      font-weight: 700;
-      color: #9a3412;
+      font-weight: 800;
+      color: #9a4a12;
       margin-bottom: 6px;
     }
 
@@ -136,11 +253,183 @@
       font-size: 0.95rem;
       color: var(--muted);
       margin-top: 14px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    @media (min-width: 720px) {
+      .photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .photo-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .photo-caption {
+      padding: 10px 12px 12px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      background: #f8fafc;
+      border-top: 1px solid var(--border);
+    }
+
+    .feedback-section {
+      margin-top: 26px;
+      padding-top: 8px;
+    }
+
+    .feedback-toggle {
+      width: 100%;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      font: inherit;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .feedback-toggle:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .feedback-toggle .label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .feedback-toggle .chevron {
+      transition: transform 0.2s ease;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    .feedback-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.2s ease;
+      opacity: 0;
+      margin-top: 0;
+    }
+
+    .feedback-section.open .feedback-content {
+      max-height: 2000px;
+      opacity: 1;
+      margin-top: 14px;
+    }
+
+    .feedback-section.open .feedback-toggle .chevron {
+      transform: rotate(180deg);
+    }
+
+    .feedback-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    @media (min-width: 720px) {
+      .feedback-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .feedback-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+    }
+
+    .feedback-card img {
+      display: block;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #eef2ff;
+    }
+
+    .scholarship-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+      margin: 12px 0 18px;
+    }
+
+    .scholarship-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 84px;
+      padding: 12px 10px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+    }
+
+    .scholarship-item img {
+      display: block;
+      max-width: 100%;
+      max-height: 52px;
+      object-fit: contain;
+      filter: contrast(1.02) saturate(0.9);
+    }
+
+    .scholarship-item.text-badge {
+      background: linear-gradient(180deg, #f8fafc, #eef2ff);
+    }
+
+    .scholarship-item.text-badge span {
+      font-weight: 800;
+      font-size: 0.8rem;
+      letter-spacing: 0.03em;
+      color: var(--text);
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .scholarship-item svg {
+      display: block;
+      width: 100%;
+      max-width: 120px;
+      height: auto;
     }
 
     footer {
       text-align: center;
-      margin: 40px 0 20px 0;
+      margin: 30px 0 20px 0;
       font-size: 0.9rem;
       color: var(--muted);
     }
@@ -173,18 +462,41 @@
             <li>Qoʻshimcha shablonlar va roadmaps</li>
           </ul>
 
-          <div class="note">
-            ⚠️ Eslatma: Kursda individual feedback, jonli Q&A yoki hujjatlarni tekshirish xizmati kiritilmagan.
-          </div>
-
           <h3>📅 Kurs sanasi</h3>
-          <p><strong>1-sentyabr, 2026</strong></p>
+          <div class="info-card">
+            <p class="date">1-sentyabr, 2026</p>
+            <p class="duration">Kurs davomiyligi — 40 ta har xil uzunlikdagi videodars, umumiy 6 soat</p>
+          </div>
 
           <h3>👩‍🏫 Muallif</h3>
           <p>
             <strong>Olimakhon Ergasheva</strong><br>
             DAAD🇩🇪, Turkiye Burslari🇹🇷, Erasmus Mundus🇪🇺, GKS🇰🇷, Global UGRAD/Techgirls🇺🇸, OSCE🇬🇪 dasturlari gʻolibi.
           </p>
+
+          <div class="scholarship-strip" aria-label="Scholarship and program logos">
+            <div class="scholarship-item">
+              <img src="https://techgirlsglobal.org/wp-content/uploads/2018/03/techgirls-logo-4-12-final.jpg" alt="TechGirls logo" />
+            </div>
+            <div class="scholarship-item">
+              <img src="https://www.globalugrad.org/wp-content/uploads/2024/03/Footer-Logo-Global-UGRAD@2x.png" alt="Global UGRAD logo" />
+            </div>
+            <div class="scholarship-item">
+              <img src="https://www.turkiyeburslari.gov.tr/YTB/images/logo/tb-logo.png" alt="Türkiye Bursları logo" />
+            </div>
+            <div class="scholarship-item">
+              <img src="assets/daad-logo.webp" alt="DAAD logo" />
+            </div>
+            <div class="scholarship-item">
+              <img src="https://www.osce.org/themes/custom/osce2/logo.svg" alt="OSCE logo" />
+            </div>
+            <div class="scholarship-item" aria-label="Erasmus Mundus program logo">
+              <img src="assets/erasmus-logo.png" alt="Erasmus Mundus logo" />
+            </div>
+            <div class="scholarship-item" aria-label="GKS Korea logo">
+              <img src="assets/gks-logo.png" alt="GKS Korea logo" />
+            </div>
+          </div>
 
           <h3>🏆 Natijalar</h3>
           <div class="results">
@@ -196,10 +508,28 @@
             </ul>
           </div>
 
-          <h3>💰 Narxi</h3>
+          <h3>💰 Narx</h3>
           <div class="price-box">
-            <div class="price">300,000 UZS</div>
-            <div class="price-sub">(Faqat bugun roʻyxatdan oʻtsangiz)</div>
+            <div class="price-row">
+              <div class="price">300,000 UZS</div>
+              <div class="old-price">700,000 UZS</div>
+            </div>
+            <div class="price-sub">1-sentyabr, 2026</div>
+            <ul style="margin: 12px 0 0 18px; color: var(--muted); padding-left: 18px;">
+              <li>YouTube + Telegram yopiq kanal</li>
+              <li>Umrbod dostup</li>
+              <li>Grant yutgan hujjatlar to'plami</li>
+              <li>Qo'shimcha shablon va roadmap</li>
+            </ul>
+            <div class="deadline">Ro'yxatdan o'tish deadline: august 25, 2026.</div>
+          </div>
+
+          <h3>💳 To’lov</h3>
+          <div class="payment-card">
+            <div class="label">To’lov uchun karta</div>
+            <div class="amount">Olimaxon Ergasheva</div>
+            <div class="card-number">9860 1766 0683 7746</div>
+            <div style="color: var(--muted);">To’lagandan so’ng chekni <strong>@oddiyqiz_admin</strong> akkauntiga yuboring.</div>
           </div>
 
           <h3>📺 Darsliklar va dostup</h3>
@@ -207,29 +537,60 @@
             Barcha video darsliklar YouTube’ga joylanadi hamda Telegram yopiq kanali orqali umrbod dostup beriladi.
           </p>
 
-          <h3>📩 Roʻyxatdan oʻtish va savollar uchun</h3>
-          <a href="https://t.me/oddiyqiz_admin" class="cta">@oddiyqiz_admin</a>
-        </div>
-
-        <div>
-          <div class="price-box" style="margin-top: 0;">
-            <div class="price">300,000 UZS</div>
-            <div class="price-sub">1-sentyabr, 2026</div>
-            <div style="margin-top: 10px; font-size: 0.95rem;">
-              YouTube + Telegram yopiq kanal<br />
-              Umrbod dostup
+          <div class="photo-grid">
+            <div class="photo-card">
+              <img src="assets/essay-screenshot.jpg" alt="Grant essay example screenshot" />
+              <div class="photo-caption">Grant essay example</div>
+            </div>
+            <div class="photo-card">
+              <img src="assets/telegram-screenshot.jpg" alt="Telegram learning workflow screenshot" />
+              <div class="photo-caption">Telegram learning workflow</div>
             </div>
           </div>
 
-          <div class="results" style="margin-top: 16px;">
-            <div class="results-title">Natijalar</div>
-            <ul style="margin-top: 6px;">
-              <li>2 × DAAD finalist</li>
-              <li>1 × GKS grant</li>
-              <li>2 × OSCE grant</li>
+          <h3>� Kurs materiallari</h3>
+          <div class="results">
+            <div class="results-title">Kurs davomida taqdim etilgan materiallar</div>
+            <ul>
+              <li><strong>Fayllar va shablonlar:</strong> CV shablon (grantlarga mos), Motivation Letter shabloni va real misollar, Recommendation Letter namunasi, Grant Tracking jadvali</li>
+              <li><strong>Video darslar:</strong> Modul bo‘yicha video materiallar, har bir bosqich uchun alohida tushuntirishlar</li>
+              <li><strong>Prezentatsiya slaydlar to‘plami:</strong> Barcha modul va strategik slaydlar PDF ko‘rinishda</li>
+              <li><strong>Telegram kanali:</strong> Ushbu ma’lumotlar doimiy sizda bo‘ladi</li>
+              <li><strong>Bonuslar:</strong> Fulbright savol-javob namunasi, CV va Essay tahlillari</li>
             </ul>
           </div>
+
+          <h3>�📩 Roʻyxatdan oʻtish va savollar uchun</h3>
+          <a href="https://t.me/oddiyqiz_admin" class="cta">@oddiyqiz_admin</a>
+
+          <div class="feedback-section" id="feedbackSection">
+            <button class="feedback-toggle" type="button" aria-expanded="false" aria-controls="feedbackContent">
+              <span class="label">💬 Feedback</span>
+              <span class="chevron">⌄</span>
+            </button>
+            <div class="feedback-content" id="feedbackContent">
+              <div class="feedback-grid">
+                <div class="feedback-card">
+                  <img src="assets/feedback/feedback-1.jpg" alt="Feedback screenshot 1" />
+                </div>
+                <div class="feedback-card">
+                  <img src="assets/feedback/feedback-2.jpg" alt="Feedback screenshot 2" />
+                </div>
+                <div class="feedback-card">
+                  <img src="assets/feedback/feedback-3.jpg" alt="Feedback screenshot 3" />
+                </div>
+                <div class="feedback-card">
+                  <img src="assets/feedback/feedback-4.jpg" alt="Feedback screenshot 4" />
+                </div>
+                <div class="feedback-card" style="grid-column: 1 / -1;">
+                  <img src="assets/feedback/feedback-5.jpg" alt="Feedback screenshot 5" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div></div>
       </div>
 
       <footer>
@@ -237,5 +598,15 @@
       </footer>
     </div>
   </div>
+
+  <script>
+    const feedbackSection = document.getElementById('feedbackSection');
+    const feedbackToggle = feedbackSection.querySelector('.feedback-toggle');
+
+    feedbackToggle.addEventListener('click', () => {
+      const isOpen = feedbackSection.classList.toggle('open');
+      feedbackToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  </script>
 </body>
 </html>
